@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Administração – Adolescence</title>
+    <script src="https://unpkg.com/netlify-cms-app@2.15.65/dist/netlify-cms.js"></script>
+  </head>
+  <body>
+    <h1>Login Manual – Painel Adolescence</h1>
+    <script>
+      // Usuário e senha manual
+      const USER = "Thay";
+      const PASS = "temporaria123"; // podes alterar depois
+
+      const loginForm = document.createElement("form");
+      loginForm.innerHTML = `
+        <label>Usuário: <input type="text" id="username"/></label><br/>
+        <label>Senha: <input type="password" id="password"/></label><br/>
+        <button type="submit">Entrar</button>
+      `;
+      document.body.appendChild(loginForm);
+
+      loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const u = document.getElementById("username").value;
+        const p = document.getElementById("password").value;
+        if(u === USER && p === PASS){
+          window.location.href = "/admin/#/";
+        } else {
+          alert("Usuário ou senha incorretos!");
+        }
+      });
+    </script>
+  </body>
+</html>
